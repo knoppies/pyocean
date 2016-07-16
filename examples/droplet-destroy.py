@@ -20,6 +20,6 @@ while True:
         droplet.destroy()
         break
     except pyocean.exceptions.DOException as e:
-        print('Could not destroy droplet. Reason: %s' % e)
+        print(('Could not destroy droplet. Reason: %s' % e))
 
-print('Destroyed droplet %s.' % droplet.name)
+print(('Destroyed droplet %s.' % droplet.name))

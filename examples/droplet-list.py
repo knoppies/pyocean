@@ -14,6 +14,6 @@ ACCESS_TOKEN = os.getenv('ACCESS_TOKEN', '')
 try:
     digitalocean = pyocean.DigitalOcean(ACCESS_TOKEN)
     for droplet in digitalocean.droplet.all():
-        print('%s (%s)' % (droplet.name, droplet.image['name']))
+        print(('%s (%s)' % (droplet.name, droplet.image['name'])))
 except pyocean.exceptions.DOException as e:
-    print('ERROR: %s' % e)
+    print(('ERROR: %s' % e))

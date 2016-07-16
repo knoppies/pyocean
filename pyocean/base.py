@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-import urlparse
+import urllib.parse
 import re
 import os
 import sys
@@ -44,7 +44,7 @@ class ApiClient(object):
             if self.access_token:
                 headers['Authorization'] = 'Bearer %s' % self.access_token
             f = getattr(sess, method.lower())
-            r = f(urlparse.urljoin(self.end_point, path), 
+            r = f(urllib.parse.urljoin(self.end_point, path), 
                   headers=headers, params=params, data=data)
         except requests.exceptions.RequestException as e:
             if type(e) is requests.exceptions.ConnectionError:
@@ -144,7 +144,7 @@ class ResourceIterator(ApiClient):
     def __iter__(self):
         return self
 
-    def next(self):
+    def __next__(self):
         if not self._data and self._has_more:
             content = self.call_api(self._resource, params={'page': self._page})
             try:

@@ -16,9 +16,9 @@ DROPLET_ID = '' or os.getenv('DROPLET_ID')
 try:
     digitalocean = pyocean.DigitalOcean(ACCESS_TOKEN)
     droplet = digitalocean.droplet.get(DROPLET_ID)
-    print("Rebooting droplet '%s'..." % droplet.name)
+    print(("Rebooting droplet '%s'..." % droplet.name))
     droplet.reboot()
 except pyocean.exceptions.DOException as e:
-    print('Reboot failed: %s' % e)
+    print(('Reboot failed: %s' % e))
 else:
     print('done.')

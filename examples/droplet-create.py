@@ -23,5 +23,5 @@ try:
     for droplet in digitalocean.droplet.all():
         print(droplet)
 except pyocean.exceptions.DOException as e:
-    print('ERROR %s: %s' % (e.code, e.message))
+    print(('ERROR %s: %s' % (e.code, e.message)))
 
